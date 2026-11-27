@@ -1,0 +1,35 @@
+{
+    "name": "shamiComposer",
+    "short_name": "shamiComposer",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#01284A",
+    "theme_color": "#01284A",
+    "description": "A free shamisen notation editor that runs in your browser.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

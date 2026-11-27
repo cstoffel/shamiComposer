@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="shamiComposer is a free shamisen notation editor that runs in your browser.">
+  <!-- Shown when a link is shared. https://cstoffel.github.io/shamiComposer/ is filled in by the CI
+       build (.github/workflows/build.yaml) with the site's address. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="shamiComposer">
+  <meta property="og:title" content="About shamiComposer">
+  <meta property="og:description" content="shamiComposer is a free shamisen notation editor that runs in your browser.">
+  <meta property="og:url" content="https://cstoffel.github.io/shamiComposer/about/">
+  <meta property="og:image" content="https://cstoffel.github.io/shamiComposer/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="shamiComposer: a free shamisen notation editor for your browser">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="color-scheme" content="light dark">
+  <title>About shamiComposer</title>
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <script src="../analytics.js" async></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* The app's Material colour scheme (lib/theme.dart). */
+    :root {
+      --primary: #2c638b;
+      --on-primary: #ffffff;
+      --secondary-container: #d4e4f6;
+      --on-secondary-container: #0d1d2a;
+      --surface: #f7f9ff;
+      --on-surface: #181c20;
+      --on-surface-variant: #42474e;
+      --outline-variant: #c2c7ce;
+      --container-low: #f1f4f9;
+      --container: #ebeef3;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary: #99ccf9;
+        --on-primary: #003351;
+        --secondary-container: #394857;
+        --on-secondary-container: #d4e4f6;
+        --surface: #101418;
+        --on-surface: #e0e2e8;
+        --on-surface-variant: #c2c7ce;
+        --outline-variant: #42474e;
+        --container-low: #181c20;
+        --container: #1c2024;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--surface);
+      color: var(--on-surface);
+      font: 400 17px/1.65 Roboto, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+
+    a { color: var(--primary); text-underline-offset: 2px; overflow-wrap: anywhere; }
+    a:focus-visible, .button:focus-visible { outline: 3px solid var(--primary); outline-offset: 2px; }
+
+    .wrap { max-width: 720px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+
+    header {
+      background: var(--container-low);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .hero { padding-top: 56px; padding-bottom: 48px; display: flex; gap: 28px; align-items: center; }
+    .hero img { width: 96px; height: 96px; flex: none; }
+    h1 { font-size: 40px; line-height: 1.15; font-weight: 500; margin: 0 0 10px; letter-spacing: -0.01em; }
+    .tagline { font-size: 19px; font-style: italic; color: var(--on-surface-variant); margin: 0 0 24px; }
+
+    .button {
+      display: inline-flex; align-items: center; height: 44px; padding: 0 24px;
+      border-radius: 22px; font-weight: 500; font-size: 15px; text-decoration: none;
+      background: var(--primary); color: var(--on-primary); letter-spacing: 0.01em;
+    }
+    .button.tonal { background: var(--secondary-container); color: var(--on-secondary-container); }
+    .button:hover { filter: brightness(1.08); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    main { padding: 8px 0 64px; }
+    section { margin-top: 44px; }
+    h2 { font-size: 26px; font-weight: 500; margin: 0 0 14px; }
+    p { margin: 0 0 16px; }
+
+
+    .card {
+      background: var(--container-low); border: 1px solid var(--outline-variant);
+      border-radius: 16px; padding: 4px 20px;
+    }
+    ul.list { list-style: none; margin: 0; padding: 0; }
+    ul.list li {
+      position: relative; padding: 12px 0 12px 28px;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    ul.list li:last-child { border-bottom: 0; }
+    ul.list li::before {
+      content: ""; position: absolute; left: 4px; top: 22px;
+      width: 9px; height: 9px; border-radius: 50%; background: var(--primary);
+    }
+    /* Plans are hollow dots: not here yet. */
+    ul.list.future li::before { background: transparent; box-shadow: inset 0 0 0 2px var(--primary); }
+
+    hr { border: 0; border-top: 1px solid var(--outline-variant); margin: 56px 0 0; }
+
+    footer { border-top: 1px solid var(--outline-variant); padding: 24px 0 40px; font-size: 14px; color: var(--on-surface-variant); }
+
+    @media (max-width: 560px) {
+      .hero { flex-direction: column; align-items: flex-start; gap: 16px; padding-top: 40px; padding-bottom: 36px; }
+      .hero img { width: 72px; height: 72px; }
+      h1 { font-size: 34px; }
+      .tagline { font-size: 17px; }
+      .card { padding: 4px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <img src="shamisen.png" alt="">
+      <div>
+        <h1>shamiComposer</h1>
+        <p class="tagline">This is my shamisen editor. There are many like it, but this one is mine…</p>
+        <div class="actions">
+          <a class="button" href="../">Open shamiComposer</a>
+          <a class="button tonal" href="../bunkafu/">What is bunkafu?</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <p>Welcome to shamiComposer, a shamisen notation editor. shamiComposer is free to use and the current features will be free forever. I might add features like cloud storage that would cost me real money, so I would probably need to charge a little at that point (max $5 a month, but I’m hoping for more like a couple of bucks a month).</p>
+      <p>I think it has most of the features you would expect, but definitely not all of them. It’s a work in progress…</p>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <div class="card">
+        <ul class="list">
+          <li>Unlimited editing and printing</li>
+          <li>Selectable time signature</li>
+          <li>Selectable tuning</li>
+          <li>Techniques: sukui, hajiki, suberi, uchi, suri</li>
+          <li>An optional fretboard display where you can see and hear the note for each position on the strings.</li>
+          <li><strong>Components:</strong> I think this is an idea unique to this editor. Kamashi and triplets are treated as a single component. Kamashi is a fixed 4300 and triplets are a drop in, editable unit that fills the correct amount of time. These are troublesome in other editors because they don’t cleanly fit in standard timing.</li>
+          <li>Fixed and variable length measures. In fixed mode, every measure has the same width. In variable mode, measures will shrink and grow to fit their content, with a variable amount of padding.</li>
+          <li>Another unique feature, I think, is that shamiComposer tries to ensure that every measure is valid from a timing standpoint. Every beat must be accounted for, notes can’t overlap (other than chords), etc.</li>
+          <li>Simple backup to Google Drive. It’s not that fancy, but it does work.</li>
+          <li>A very crude playback mechanism. The sounds are pretty terrible and there is no support for techniques, but it does give you a vague sense of what a piece sounds like.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Future plans</h2>
+      <div class="card">
+        <ul class="list future">
+          <li>Real cloud support with unlimited storage. As of right now, this is the only feature that would be behind a paywall.</li>
+          <li>Better sounds.</li>
+          <li>More flexible display of techniques and components (there’s more than one way to draw a kamashi and more than one name for it)</li>
+          <li>Better support for non-shamisen notation like repeats, etc.</li>
+          <li>Non-musical notation like attachable notes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>A little background</h2>
+      <p>I have been noodling on a shamisen tab editor for years. I have at least four abandoned efforts in various states of completion. A while back I started on a Flutter (a way to build apps that work on multiple platforms, like Mac, Windows, and web) version, which showed a lot of promise, but Flutter for web was a little weak, and I didn’t want to get locked into native (Mac and Windows) versions. Plus life just kept getting in the way…</p>
+      <p>Then I met some new friends, Claude and Chappy (as he is known in Japan), who were a huge help in helping me actually get this thing over the finish line. Plus, Flutter reached a point of sophistication that I was comfortable shipping a web version (and only a web version, at least to start).</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">shamiComposer · <a href="../">Open the app</a> · <a href="../bunkafu/">What is bunkafu?</a></div>
+  </footer>
+</body>
+</html>

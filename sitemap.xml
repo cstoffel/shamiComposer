@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The build replaces the site-address placeholder with the published address (see
+     .github/workflows/build.yaml). Add any new static page here. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cstoffel.github.io/shamiComposer/</loc>
+  </url>
+  <url>
+    <loc>https://cstoffel.github.io/shamiComposer/about/</loc>
+  </url>
+  <url>
+    <loc>https://cstoffel.github.io/shamiComposer/bunkafu/</loc>
+  </url>
+</urlset>
